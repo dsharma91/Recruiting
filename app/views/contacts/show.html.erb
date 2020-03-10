@@ -1,0 +1,161 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Contact #<%= @contact.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/contacts" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_contact/<%= @contact.id %>" class="btn btn-block btn-outline-secondary">
+          Delete contact
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Contact name
+      </dt>
+      <dd>
+        <%= @contact.contact_name %>
+      </dd>
+
+      <dt>
+        Company
+      </dt>
+      <dd>
+        <%= @contact.company %>
+      </dd>
+
+      <dt>
+        Email address
+      </dt>
+      <dd>
+        <%= @contact.email_address %>
+      </dd>
+
+      <dt>
+        Contact input date
+      </dt>
+      <dd>
+        <%= @contact.contact_input_date %>
+      </dd>
+
+      <dt>
+        Comments
+      </dt>
+      <dd>
+        <%= @contact.comments %>
+      </dd>
+
+      <dt>
+        Category
+      </dt>
+      <dd>
+        <%= @contact.category %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @contact.user_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@contact.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@contact.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit contact
+    </h2>
+
+    <form action="/modify_contact/<%= @contact.id %>"  method="post" >
+      <div class="form-group">
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name" class="form-control" value="<%= @contact.contact_name %>">
+      </div>
+
+      <div class="form-group">
+        <label for="company_box">
+          Company
+        </label>
+
+        <input type="text" id="company_box" name="query_company" class="form-control" value="<%= @contact.company %>">
+      </div>
+
+      <div class="form-group">
+        <label for="email_address_box">
+          Email address
+        </label>
+
+        <input type="text" id="email_address_box" name="query_email_address" class="form-control" value="<%= @contact.email_address %>">
+      </div>
+
+      <div class="form-group">
+        <label for="contact_input_date_box">
+          Contact input date
+        </label>
+
+        <input type="date" id="contact_input_date_box" name="query_contact_input_date" class="form-control" value="<%= @contact.contact_input_date %>">
+      </div>
+
+      <div class="form-group">
+        <label for="comments_box">
+          Comments
+        </label>
+
+        <input type="text" id="comments_box" name="query_comments" class="form-control" value="<%= @contact.comments %>">
+      </div>
+
+      <div class="form-group">
+        <label for="category_box">
+          Category
+        </label>
+
+        <input type="text" id="category_box" name="query_category" class="form-control" value="<%= @contact.category %>">
+      </div>
+
+      <div class="form-group">
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" class="form-control" value="<%= @contact.user_id %>">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update contact
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

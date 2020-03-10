@@ -1,0 +1,182 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all contacts
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new contact
+    </h2>
+
+    <form action="/insert_contact" method="post">
+      <div class="form-group">
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="company_box">
+          Company
+        </label>
+
+        <input type="text" id="company_box" name="query_company" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="email_address_box">
+          Email address
+        </label>
+
+        <input type="text" id="email_address_box" name="query_email_address" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="contact_input_date_box">
+          Contact input date
+        </label>
+
+        <input type="date" id="contact_input_date_box" name="query_contact_input_date" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="comments_box">
+          Comments
+        </label>
+
+        <input type="text" id="comments_box" name="query_comments" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="category_box">
+          Category
+        </label>
+
+        <input type="text" id="category_box" name="query_category" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create contact
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Contact name
+        </th>
+
+        <th>
+          Company
+        </th>
+
+        <th>
+          Email address
+        </th>
+
+        <th>
+          Contact input date
+        </th>
+
+        <th>
+          Comments
+        </th>
+
+        <th>
+          Category
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @contacts.each do |contact| %>
+      <tr>
+        <td>
+          <%= contact.id %>
+        </td>
+
+        <td>
+          <%= contact.contact_name %>
+        </td>
+
+        <td>
+          <%= contact.company %>
+        </td>
+
+        <td>
+          <%= contact.email_address %>
+        </td>
+
+        <td>
+          <%= contact.contact_input_date %>
+        </td>
+
+        <td>
+          <%= contact.comments %>
+        </td>
+
+        <td>
+          <%= contact.category %>
+        </td>
+
+        <td>
+          <%= contact.user_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(contact.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(contact.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/contacts/<%= contact.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
