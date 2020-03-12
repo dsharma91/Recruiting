@@ -1,7 +1,9 @@
 namespace(:dev) do
   desc "Hydrate the database with some dummy data to look at so that developing is easier"
   task({ :prime => :environment}) do
-  
+  User.destroy_all
+  Contact.destroy_all
+
     dev = User.new
     dev.email = "dsharma1@chicagobooth.edu"
     dev.password = "password"
