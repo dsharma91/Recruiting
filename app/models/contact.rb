@@ -15,4 +15,6 @@
 #
 
 class Contact < ApplicationRecord
+belongs_to :user
+# validates :category, :inclusion => { :in => [ 'venture capital', 'private equity', 'start up', 'corporate', 'other' ] }
 end

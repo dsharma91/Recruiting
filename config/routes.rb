@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  get("/", { :controller => "contacts", :action => "index" }) #redirecting user signin to contacts
 
   # Routes for the Contact resource:
 
@@ -42,7 +43,7 @@ Rails.application.routes.draw do
   get("/user_sign_in", { :controller => "user_sessions", :action => "new_session_form" })
   # AUTHENTICATE AND STORE COOKIE
   post("/user_verify_credentials", { :controller => "user_sessions", :action => "create_cookie" })
-  
+
   # SIGN OUT        
   get("/user_sign_out", { :controller => "user_sessions", :action => "destroy_cookies" })
              
